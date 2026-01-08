@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <header class="header">
@@ -38,13 +39,24 @@
             </div>
         </div>
     </header>
+    <section class="hero" id="hero">
+        <!-- صورة الغلاف -->
+        <div class="hero-image"></div>
 
-    <!-- <section class="hero" id="hero">
+        <!-- فيديو الخلفية -->
+        <video autoplay muted loop class="hero-video">
+            <source src="images/IMG_3215.MOV" type="video/mp4">
+            متصفحك لا يدعم الفيديو
+        </video>
+
+        <!-- Overlay موجود بالفعل -->
         <div class="hero-overlay"></div>
+
+        <!-- المحتوى -->
         <div class="content reveal">
             <h3>نبني رؤيتكم.. ونشيد المستقبل</h3>
             <p>
-                في مؤسسة اوتاد للمقاولات العامة، لا نقوم بمجرد البناء، بل نصنع معالم تدوم. نقدم خدمات مقاولات عامة
+                في شركة اوتاد للمقاولات العامة، لا نقوم بمجرد البناء، بل نصنع معالم تدوم. نقدم خدمات مقاولات عامة
                 متكاملة من التخطيط الهندسي وحتى التشطيبات النهائية بأعلى معايير الجودة والسلامة. خبرة تمتد لسنوات في
                 السوق السعودي، وفريق هندسي متكامل لخدمتكم.
             </p>
@@ -53,34 +65,7 @@
                 <a href="#projects" class="btn btn-secondary">شاهد أعمالنا</a>
             </div>
         </div>
-    </section> -->
-    <section class="hero" id="hero">
-    <!-- صورة الغلاف -->
-    <div class="hero-image"></div>
-
-    <!-- فيديو الخلفية -->
-    <video autoplay muted loop class="hero-video">
-        <source src="images/IMG_3215.MOV" type="video/mp4">
-        متصفحك لا يدعم الفيديو
-    </video>
-
-    <!-- Overlay موجود بالفعل -->
-    <div class="hero-overlay"></div>
-
-    <!-- المحتوى -->
-    <div class="content reveal">
-        <h3>نبني رؤيتكم.. ونشيد المستقبل</h3>
-        <p>
-            في شركة اوتاد للمقاولات العامة، لا نقوم بمجرد البناء، بل نصنع معالم تدوم. نقدم خدمات مقاولات عامة
-            متكاملة من التخطيط الهندسي وحتى التشطيبات النهائية بأعلى معايير الجودة والسلامة. خبرة تمتد لسنوات في
-            السوق السعودي، وفريق هندسي متكامل لخدمتكم.
-        </p>
-        <div class="buttons">
-            <a href="#contact" class="btn">اطلب عرض سعر مجاني</a>
-            <a href="#projects" class="btn btn-secondary">شاهد أعمالنا</a>
-        </div>
-    </div>
-</section>
+    </section>
 
 
     <!-- قسم من نحن -->
@@ -217,6 +202,7 @@
             </div>
         </div>
     </section>
+    <!-- قسم الخطوات -->
     <section class="steps" id="steps">
         <h1 class="heading"> خطوات <span>تنفيذ العمل</span> </h1>
 
@@ -407,7 +393,6 @@
             <div class="box">
                 <h3>معلومات التواصل</h3>
                 <a href="#" class="links"> <i class="fas fa-phone"></i> +055 0212900 </a>
-                <a href="#" class="links"> <i class="fas fa-envelope"></i> info@contracting.com </a>
                 <a href="#" class="links"> <i class="fas fa-map-marker-alt"></i> الرياض، طريق الملك فهد </a>
                 <a href="#" class="links"> <i class="fas fa-clock"></i> السبت - الخميس: 8ص - 6م </a>
             </div>
@@ -416,22 +401,20 @@
     </footer>
 
     <!-- WhatsApp & Call Floating Buttons -->
-<div class="floating-buttons">
-    <!-- WhatsApp Button -->
-    <a href="https://wa.me/966501234567?text=السلام%20عليكم%20،%20أرغب%20في%20طلب%20استشارة" 
-       target="_blank" 
-       class="floating-btn whatsapp-btn">
-        <i class="fab fa-whatsapp"></i>
-        <span class="tooltip">تواصل عبر واتساب</span>
-    </a>
-    
-    <!-- Call Button -->
-    <a href="tel:+966550212900" 
-       class="floating-btn call-btn">
-        <i class="fas fa-phone"></i>
-        <span class="tooltip">اتصل بنا الآن</span>
-    </a>
-</div>
+    <div class="floating-buttons">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/966501234567?text=السلام%20عليكم%20،%20أرغب%20في%20طلب%20استشارة" target="_blank"
+            class="floating-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i>
+            <span class="tooltip">تواصل عبر واتساب</span>
+        </a>
+
+        <!-- Call Button -->
+        <a href="tel:+055 0212900 " class="floating-btn call-btn">
+            <i class="fas fa-phone"></i>
+            <span class="tooltip">اتصل بنا الآن</span>
+        </a>
+    </div>
     <!-- ملف الجافاسكريبت -->
     <script src="script.js"></script>
 </body>
