@@ -1,0 +1,910 @@
+:root {
+    --primary: #2c3e50; /* كحلي غامق */
+    --secondary: #d35400; /* برتقالي محروق */
+    --gold: #f39c12; /* ذهبي للإحصائيات */
+    --bg-color: #f0f2f5;
+    --white: #fff;
+    --text: #444;
+    --shadow: 0 5px 15px rgba(0,0,0,0.1); /* ظل افتراضي */
+    --shadow-hover: 0 15px 30px rgba(0,0,0,0.2); /* ظل عند التحويم */
+    --transition: all .3s ease-in-out;
+}
+
+* {
+    font-family: 'Cairo', sans-serif;
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    outline: none; border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: var(--transition);
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 7rem;
+}
+
+body {
+    background: var(--bg-color);
+}
+
+section {
+    padding: 3rem 9%;
+}
+
+.heading {
+    text-align: center;
+    padding-bottom: 3rem;
+    color: var(--primary);
+    font-size: 4rem;
+    font-weight: 800;
+}
+
+.heading span {
+    color: var(--secondary);
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 1rem 3rem;
+    font-size: 1.8rem;
+    background: var(--secondary);
+    color: var(--white);
+    border-radius: .5rem;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn:hover {
+    background: var(--primary);
+    transform: translateY(-5px); /* تحريك الزر للأعلى */
+    box-shadow: var(--shadow);
+}
+
+.btn-secondary {
+    background: transparent;
+    border: .2rem solid var(--white);
+    margin-right: 1rem;
+}
+
+.btn-secondary:hover {
+    background: var(--white);
+    color: var(--primary);
+}
+.logo {
+    text-decoration: none;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.3s ease;
+}
+
+.logo-container img {
+    width: 80px; /* حجم مناسب للوجو */
+    height: auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo-container span {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+/* تأثير عند المرور */
+.logo-container:hover img {
+    transform: scale(1.1) rotate(-5deg);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.logo-container:hover span {
+    color: #25D366; /* لو تحبي نفس لون الواتساب */
+}
+
+
+/* Header */
+.header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow);
+    padding: 1.5rem 9%;
+}
+
+.header .header-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header .logo {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary);
+}
+
+.header .logo span {
+    color: var(--secondary);
+}
+
+.header .logo i {
+    color: var(--secondary);
+}
+
+.header .navbar a {
+    font-size: 1.7rem;
+    color: var(--text);
+    margin: 0 1.2rem;
+    font-weight: 600;
+}
+
+.header .navbar a:hover {
+    color: var(--secondary);
+    border-bottom: .2rem solid var(--secondary);
+    padding-bottom: .5rem;
+}
+
+.header .icons div {
+    height: 4.5rem;
+    width: 4.5rem;
+    line-height: 4.5rem;
+    border-radius: .5rem;
+    background: #eee;
+    color: var(--primary);
+    font-size: 2rem;
+    margin-right: .3rem;
+    cursor: pointer;
+    text-align: center;
+    display: none;
+}
+
+.header .icons div:hover {
+    background: var(--secondary);
+    color: var(--white);
+}
+
+/* Hero */
+/* .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('images/hero.JPG') no-repeat center center/cover;
+    position: relative;
+    text-align: center;
+} */
+ .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    color: #fff;
+}
+
+/* الفيديو كخلفية */
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2; /* خلف overlay والمحتوى */
+}
+
+/* الـ overlay موجود بالفعل */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.4); /* الشفافية تتحكم في وضوح النص */
+    z-index: -1; /* فوق الفيديو تحته المحتوى */
+}
+
+/* المحتوى فوق كل شيء */
+.hero .content {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    padding: 0 20px;
+}
+
+
+.hero .hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* تعتيم الخلفية */
+}
+
+.hero .content {
+    max-width: 80rem;
+    position: relative;
+    z-index: 1;
+}
+
+.hero .content h3 {
+    font-size: 5rem;
+    color: var(--white);
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(0,0,0,0.5);
+    margin-bottom: 2rem;
+}
+
+.hero .content p {
+    font-size: 1.8rem;
+    color: #f0f0f0;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+}
+
+/* About */
+.about .row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+
+.about .row .image {
+    flex: 1 1 40rem;
+}
+
+.about .row .image img {
+    width: 100%;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    object-fit: cover;
+}
+
+.about .row .content {
+    flex: 1 1 40rem;
+}
+
+.about .row .content h3 {
+    font-size: 3rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+}
+/* قسم لماذا نحن */
+.why-us {
+    padding: 6rem 2rem;
+    background: #f9f9f9;
+    text-align: center;
+}
+
+.why-us .heading {
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+    color: #00796B;
+}
+
+.why-us .box-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.why-us .box {
+    background: #fff;
+    flex: 1 1 calc(50% - 2rem);
+    max-width: 400px;
+    border-radius: 1rem;
+    padding: 2.5rem 1.5rem;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s ease, border-bottom 0.3s ease;
+    border-bottom: 4px solid transparent; /* خط أسفل شفاف */
+    cursor: pointer;
+}
+
+/* عند Hover أو الضغط */
+.why-us .box:hover,
+.why-us .box:active {
+    transform: translateY(-10px); /* يتحرك لفوق */
+    border-bottom: 4px solid #00796B; /* يظهر الخط السفلي */
+}
+
+.why-us .box .icon-bg {
+    font-size: 3rem;
+    color: #00796B;
+    margin-bottom: 1rem;
+}
+
+.why-us .box h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: #004D40;
+}
+
+.why-us .box p {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .why-us .box {
+        flex: 1 1 100%;
+    }
+}
+
+/* ===== Slider Images (CSS Only) ===== */
+.slider {
+    position: relative;
+    height: 260px;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.slider img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    animation: slideShow 9s infinite;
+}
+
+/* ترتيب الظهور */
+.slider img:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.slider img:nth-child(2) {
+    animation-delay: 3s;
+}
+
+
+/* Animation */
+@keyframes slideShow {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    30% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+
+.about .row .content p {
+    font-size: 1.6rem;
+    color: #666;
+    line-height: 2;
+    padding-bottom: 1.5rem;
+}
+
+/* Services */
+.services .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 2rem;
+}
+
+.services .box {
+    background: var(--white);
+    padding: 3rem 2rem;
+    text-align: center;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    border-bottom: .5rem solid transparent;
+}
+
+/* تأثير التكبير والظل القوي عند المرور */
+.services .box:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: var(--shadow-hover);
+    border-bottom-color: var(--secondary);
+}
+
+.services .box .icon-bg {
+    height: 7rem; width: 7rem;
+    line-height: 7rem;
+    border-radius: 50%;
+    background: rgba(230, 126, 34, 0.1);
+    color: var(--secondary);
+    font-size: 3rem;
+    margin: 0 auto 2rem;
+}
+
+.services .box:hover .icon-bg {
+    background: var(--secondary);
+    color: var(--white);
+}
+
+.services .box h3 {
+    font-size: 2.2rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.services .box p {
+    font-size: 1.5rem;
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.services .box .read-more {
+    color: var(--secondary);
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.services .box .read-more:hover {
+    color: var(--primary);
+    padding-right: 1rem; /* حركة بسيطة للسهم */
+}
+
+/* Stats */
+.stats {
+    background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)),  fixed center;
+    padding: 5rem 9%;
+}
+.stats .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 2rem;
+    text-align: center;
+}
+
+.stats .box i {
+    font-size: 5rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+}
+
+.stats .box h3 {
+    font-size: 4rem;
+    color: var(--white);
+    font-weight: 800;
+}
+
+.stats .box p {
+    font-size: 2rem;
+    color: #eee;
+}
+/* ===== Steps Section ===== */
+.steps {
+    padding: 80px 0;
+    background: #f9f9f9;
+}
+
+.steps .container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 15px;
+}
+
+/* التايملاين */
+.timeline {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+/* كل خطوة */
+.timeline-step {
+    flex: 1;
+    background: #fff;
+    padding: 35px 25px;
+    border-radius: 14px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+
+    opacity: 0;
+    transform: translateY(40px);
+    animation: stepFade 0.8s ease forwards;
+}
+
+/* ترتيب الأنيميشن */
+.step-1 { animation-delay: 0.2s; }
+.step-2 { animation-delay: 0.5s; }
+.step-3 { animation-delay: 0.8s; }
+.step-4 { animation-delay: 1.1s; }
+
+/* الدائرة */
+.timeline-step .circle {
+    width: 55px;
+    height: 55px;
+    margin: 0 auto 20px;
+    background: #c9a44d;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timeline-step h3 {
+    font-size: 19px;
+    margin-bottom: 12px;
+    color: #333;
+}
+
+.timeline-step p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #666;
+}
+
+/* الحركة */
+@keyframes stepFade {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* موبايل */
+@media (max-width: 992px) {
+    .timeline {
+        flex-direction: column;
+    }
+}
+/* Projects */
+.projects .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+    gap: 2rem;
+}
+
+.projects .box {
+    border-radius: 1rem;
+    overflow: hidden;
+    height: 30rem;
+    position: relative;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+}
+
+.projects .box .image {
+    height: 100%;
+    width: 100%;
+}
+
+.projects .box .image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* طبقة تظهر عند المرور */
+.projects .box .image .overlay {
+    position: absolute;
+    top: 0; left: 0;
+    height: 100%; width: 100%;
+    background: rgba(44, 62, 80, 0.85);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0); /* مخفية */
+    opacity: 0;
+}
+
+.projects .box:hover .image .overlay {
+    transform: scale(1); /* ظهور */
+    opacity: 1;
+}
+
+.projects .box:hover .image img {
+    transform: scale(1.1); /* تكبير الصورة في الخلفية */
+}
+
+.projects .box .overlay h3 {
+    font-size: 2.5rem;
+    color: var(--secondary);
+    margin-bottom: 1rem;
+}
+
+.projects .box .overlay p {
+    font-size: 1.6rem;
+    color: var(--white);
+}
+
+/* Reviews */
+.reviews .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 2rem;
+}
+
+.reviews .box {
+    background: var(--white);
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    padding: 3rem;
+    position: relative;
+}
+
+.reviews .box:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+}
+
+.reviews .box .quote {
+    font-size: 6rem;
+    color: rgba(230, 126, 34, 0.2);
+    position: absolute;
+    top: 2rem; left: 2rem;
+}
+
+.reviews .box p {
+    font-size: 1.6rem;
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.reviews .box .user {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.reviews .box .user img {
+    height: 6rem; width: 6rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: .3rem solid var(--secondary);
+}
+
+.reviews .box .user h3 {
+    font-size: 1.8rem;
+    color: var(--primary);
+}
+
+.reviews .box .user span {
+    font-size: 1.4rem;
+    color: var(--secondary);
+}
+
+/* Contact */
+.contact .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    background: var(--white);
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.contact .row .map {
+    flex: 1 1 40rem;
+    width: 100%;
+    min-height: 50rem;
+    border: 0;
+}
+
+.contact .row form {
+    flex: 1 1 40rem;
+    padding: 3rem;
+}
+
+.contact .row form h3 {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.contact .row form .inputBox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    border: .1rem solid #ccc;
+    border-radius: .5rem;
+    padding: 0 1rem;
+    background: #f9f9f9;
+}
+
+.contact .row form .inputBox:focus-within {
+    border-color: var(--secondary);
+    background: var(--white);
+    box-shadow: 0 0 5px rgba(230, 126, 34, 0.3);
+}
+
+.contact .row form .inputBox span {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-left: 1rem;
+}
+
+.contact .row form .inputBox input,
+.contact .row form .inputBox textarea {
+    width: 100%;
+    padding: 1.5rem 0;
+    font-size: 1.6rem;
+    color: var(--text);
+    background: transparent;
+}
+
+.contact .row form .inputBox textarea {
+    height: 15rem;
+    resize: none;
+    padding: 1.5rem 0;
+}
+
+.contact .row form .btn {
+    width: 100%;
+    background: var(--primary);
+}
+
+.contact .row form .btn:hover {
+    background: var(--secondary);
+}
+
+/* Footer */
+.footer {
+    background: #1a252f;
+    padding-top: 5rem;
+    padding-bottom: 2rem;
+}
+
+.footer .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.footer .box h3 {
+    font-size: 2.5rem;
+    color: var(--white);
+    margin-bottom: 2rem;
+}
+
+.footer .box h3 span {
+    color: var(--secondary);
+}
+
+.footer .box p {
+    font-size: 1.5rem;
+    color: #bbb;
+    line-height: 1.8;
+}
+
+.footer .box .share {
+    margin-top: 2rem;
+}
+
+.footer .box .share a {
+    height: 4.5rem; width: 4.5rem;
+    line-height: 4.5rem;
+    border-radius: 50%;
+    font-size: 1.8rem;
+    background: #2c3e50;
+    color: var(--white);
+    margin-right: .5rem;
+    text-align: center;
+}
+
+.footer .box .share a:hover {
+    background: var(--secondary);
+    transform: rotate(360deg); /* تدوير الأيقونة عند التحويم */
+}
+
+.footer .box .links {
+    display: block;
+    font-size: 1.6rem;
+    color: #bbb;
+    padding: 1rem 0;
+}
+
+.footer .box .links i {
+    color: var(--secondary);
+    padding-left: .5rem;
+}
+
+.footer .box .links:hover {
+    color: var(--secondary);
+    padding-right: 1rem;
+}
+
+.footer .credit {
+    text-align: center;
+    border-top: .1rem solid #333;
+    padding-top: 2rem;
+    font-size: 1.8rem;
+    color: var(--white);
+}
+
+.footer .credit span {
+    color: var(--secondary);
+}
+.footer .share a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #333;
+    color: #fff;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.footer .share a:hover {
+    transform: scale(1.2);
+}
+
+/* لون خاص للواتساب */
+.footer .share a.fa-whatsapp {
+    background-color: #25D366;
+}
+
+/* Reveal Animation Class (يستخدم مع الجافاسكريبت) */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    html { font-size: 55%; }
+    .header { padding: 2rem; }
+}
+
+@media (max-width: 768px) {
+    .header .icons div { display: block; }
+    .header .navbar {
+        position: absolute;
+        top: 100%; right: 0; left: 0;
+        background: var(--white);
+        border-top: .1rem solid rgba(0,0,0,0.1);
+        padding: 1rem;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        transition: .3s;
+    }
+    .header .navbar.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    .header .navbar a {
+        display: block;
+        padding: 1.5rem;
+        margin: 1.5rem;
+        background: #f5f5f5;
+        font-size: 2rem;
+        border-radius: .5rem;
+    }
+    .hero .content h3 { font-size: 3.5rem; }
+}
