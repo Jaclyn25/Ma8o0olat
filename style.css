@@ -1,20 +1,27 @@
 :root {
-    --primary: #2c3e50; /* كحلي غامق */
-    --secondary: #d35400; /* برتقالي محروق */
-    --gold: #f39c12; /* ذهبي للإحصائيات */
+    --primary: #2c3e50;
+    /* كحلي غامق */
+    --secondary: #d35400;
+    /* برتقالي محروق */
+    --gold: #f39c12;
+    /* ذهبي للإحصائيات */
     --bg-color: #f0f2f5;
     --white: #fff;
     --text: #444;
-    --shadow: 0 5px 15px rgba(0,0,0,0.1); /* ظل افتراضي */
-    --shadow-hover: 0 15px 30px rgba(0,0,0,0.2); /* ظل عند التحويم */
+    --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    /* ظل افتراضي */
+    --shadow-hover: 0 15px 30px rgba(0, 0, 0, 0.2);
+    /* ظل عند التحويم */
     --transition: all .3s ease-in-out;
 }
 
 * {
     font-family: 'Cairo', sans-serif;
-    margin: 0; padding: 0;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    outline: none; border: none;
+    outline: none;
+    border: none;
     text-decoration: none;
     text-transform: capitalize;
     transition: var(--transition);
@@ -61,7 +68,8 @@ section {
 
 .btn:hover {
     background: var(--primary);
-    transform: translateY(-5px); /* تحريك الزر للأعلى */
+    transform: translateY(-5px);
+    /* تحريك الزر للأعلى */
     box-shadow: var(--shadow);
 }
 
@@ -75,6 +83,7 @@ section {
     background: var(--white);
     color: var(--primary);
 }
+
 .logo {
     text-decoration: none;
 }
@@ -87,7 +96,8 @@ section {
 }
 
 .logo-container img {
-    width: 80px; /* حجم مناسب للوجو */
+    width: 80px;
+    /* حجم مناسب للوجو */
     height: auto;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -103,18 +113,21 @@ section {
 /* تأثير عند المرور */
 .logo-container:hover img {
     transform: scale(1.1) rotate(-5deg);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .logo-container:hover span {
-    color: #25D366; /* لو تحبي نفس لون الواتساب */
+    color: #25D366;
+    /* لو تحبي نفس لون الواتساب */
 }
 
 
 /* Header */
 .header {
     position: fixed;
-    top: 0; left: 0; right: 0;
+    top: 0;
+    left: 0;
+    right: 0;
     z-index: 1000;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
@@ -184,7 +197,7 @@ section {
     position: relative;
     text-align: center;
 } */
- .hero {
+.hero {
     position: relative;
     min-height: 100vh;
     display: flex;
@@ -195,6 +208,39 @@ section {
     color: #fff;
 }
 
+/* -------------------------------------- */
+/*      طبقة الصورة قبل الفيديو           */
+/* -------------------------------------- */
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("images/cover.JPG") center center / cover no-repeat;
+    z-index: -1;
+    /* فوق الفيديو وتحت المحتوى */
+    animation: blurFade 4s ease-in-out forwards;
+}
+
+/* تأثير الغبش والاختفاء */
+@keyframes blurFade {
+    0% {
+        opacity: 1;
+        filter: blur(0);
+    }
+
+    60% {
+        opacity: 1;
+        filter: blur(6px);
+    }
+
+    100% {
+        opacity: 0;
+        filter: blur(12px);
+    }
+}
+
 /* الفيديو كخلفية */
 .hero-video {
     position: absolute;
@@ -203,43 +249,34 @@ section {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: -2; /* خلف overlay والمحتوى */
+    z-index: -2;
+    /* خلف الصورة والـ overlay */
 }
 
-/* الـ overlay موجود بالفعل */
+/* الـ overlay */
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.4); /* الشفافية تتحكم في وضوح النص */
-    z-index: -1; /* فوق الفيديو تحته المحتوى */
+    background: rgba(0, 0, 0, 0.6);
+    /* تعتيم الخلفية */
+    z-index: 0;
+    /* فوق الصورة والفيديو وتحت النص */
 }
 
-/* المحتوى فوق كل شيء */
+/* المحتوى فوق الكل */
 .hero .content {
     position: relative;
     z-index: 1;
-    max-width: 900px;
+    max-width: 80rem;
     padding: 0 20px;
 }
 
-
-.hero .hero-overlay {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.6); /* تعتيم الخلفية */
-}
-
-.hero .content {
-    max-width: 80rem;
-    position: relative;
-    z-index: 1;
-}
-
+/* النص */
 .hero .content h3 {
     font-size: 5rem;
     color: var(--white);
     text-transform: uppercase;
-    text-shadow: 0 0 10px rgba(0,0,0,0.5);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     margin-bottom: 2rem;
 }
 
@@ -278,6 +315,7 @@ section {
     color: var(--primary);
     margin-bottom: 1.5rem;
 }
+
 /* قسم لماذا نحن */
 .why-us {
     padding: 6rem 2rem;
@@ -304,18 +342,21 @@ section {
     max-width: 400px;
     border-radius: 1rem;
     padding: 2.5rem 1.5rem;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.3s ease, border-bottom 0.3s ease;
-    border-bottom: 4px solid transparent; /* خط أسفل شفاف */
+    border-bottom: 4px solid transparent;
+    /* خط أسفل شفاف */
     cursor: pointer;
 }
 
 /* عند Hover أو الضغط */
 .why-us .box:hover,
 .why-us .box:active {
-    transform: translateY(-10px); /* يتحرك لفوق */
-    border-bottom: 4px solid #00796B; /* يظهر الخط السفلي */
+    transform: translateY(-10px);
+    /* يتحرك لفوق */
+    border-bottom: 4px solid #00796B;
+    /* يظهر الخط السفلي */
 }
 
 .why-us .box .icon-bg {
@@ -376,15 +417,19 @@ section {
     0% {
         opacity: 0;
     }
+
     10% {
         opacity: 1;
     }
+
     30% {
         opacity: 1;
     }
+
     40% {
         opacity: 0;
     }
+
     100% {
         opacity: 0;
     }
@@ -422,7 +467,8 @@ section {
 }
 
 .services .box .icon-bg {
-    height: 7rem; width: 7rem;
+    height: 7rem;
+    width: 7rem;
     line-height: 7rem;
     border-radius: 50%;
     background: rgba(230, 126, 34, 0.1);
@@ -457,14 +503,16 @@ section {
 
 .services .box .read-more:hover {
     color: var(--primary);
-    padding-right: 1rem; /* حركة بسيطة للسهم */
+    padding-right: 1rem;
+    /* حركة بسيطة للسهم */
 }
 
 /* Stats */
 .stats {
-    background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)),  fixed center;
+    background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), fixed center;
     padding: 5rem 9%;
 }
+
 .stats .box-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
@@ -488,6 +536,7 @@ section {
     font-size: 2rem;
     color: #eee;
 }
+
 /* ===== Steps Section ===== */
 .steps {
     padding: 80px 0;
@@ -514,7 +563,7 @@ section {
     padding: 35px 25px;
     border-radius: 14px;
     text-align: center;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 
     opacity: 0;
     transform: translateY(40px);
@@ -522,10 +571,21 @@ section {
 }
 
 /* ترتيب الأنيميشن */
-.step-1 { animation-delay: 0.2s; }
-.step-2 { animation-delay: 0.5s; }
-.step-3 { animation-delay: 0.8s; }
-.step-4 { animation-delay: 1.1s; }
+.step-1 {
+    animation-delay: 0.2s;
+}
+
+.step-2 {
+    animation-delay: 0.5s;
+}
+
+.step-3 {
+    animation-delay: 0.8s;
+}
+
+.step-4 {
+    animation-delay: 1.1s;
+}
 
 /* الدائرة */
 .timeline-step .circle {
@@ -568,6 +628,7 @@ section {
         flex-direction: column;
     }
 }
+
 /* Projects */
 .projects .box-container {
     display: grid;
@@ -598,24 +659,29 @@ section {
 /* طبقة تظهر عند المرور */
 .projects .box .image .overlay {
     position: absolute;
-    top: 0; left: 0;
-    height: 100%; width: 100%;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
     background: rgba(44, 62, 80, 0.85);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    transform: scale(0); /* مخفية */
+    transform: scale(0);
+    /* مخفية */
     opacity: 0;
 }
 
 .projects .box:hover .image .overlay {
-    transform: scale(1); /* ظهور */
+    transform: scale(1);
+    /* ظهور */
     opacity: 1;
 }
 
 .projects .box:hover .image img {
-    transform: scale(1.1); /* تكبير الصورة في الخلفية */
+    transform: scale(1.1);
+    /* تكبير الصورة في الخلفية */
 }
 
 .projects .box .overlay h3 {
@@ -653,7 +719,8 @@ section {
     font-size: 6rem;
     color: rgba(230, 126, 34, 0.2);
     position: absolute;
-    top: 2rem; left: 2rem;
+    top: 2rem;
+    left: 2rem;
 }
 
 .reviews .box p {
@@ -672,7 +739,8 @@ section {
 }
 
 .reviews .box .user img {
-    height: 6rem; width: 6rem;
+    height: 6rem;
+    width: 6rem;
     border-radius: 50%;
     object-fit: cover;
     border: .3rem solid var(--secondary);
@@ -799,7 +867,8 @@ section {
 }
 
 .footer .box .share a {
-    height: 4.5rem; width: 4.5rem;
+    height: 4.5rem;
+    width: 4.5rem;
     line-height: 4.5rem;
     border-radius: 50%;
     font-size: 1.8rem;
@@ -811,7 +880,8 @@ section {
 
 .footer .box .share a:hover {
     background: var(--secondary);
-    transform: rotate(360deg); /* تدوير الأيقونة عند التحويم */
+    transform: rotate(360deg);
+    /* تدوير الأيقونة عند التحويم */
 }
 
 .footer .box .links {
@@ -842,6 +912,7 @@ section {
 .footer .credit span {
     color: var(--secondary);
 }
+
 .footer .share a {
     display: inline-flex;
     align-items: center;
@@ -880,24 +951,36 @@ section {
 
 /* Responsive */
 @media (max-width: 991px) {
-    html { font-size: 55%; }
-    .header { padding: 2rem; }
+    html {
+        font-size: 55%;
+    }
+
+    .header {
+        padding: 2rem;
+    }
 }
 
 @media (max-width: 768px) {
-    .header .icons div { display: block; }
+    .header .icons div {
+        display: block;
+    }
+
     .header .navbar {
         position: absolute;
-        top: 100%; right: 0; left: 0;
+        top: 100%;
+        right: 0;
+        left: 0;
         background: var(--white);
-        border-top: .1rem solid rgba(0,0,0,0.1);
+        border-top: .1rem solid rgba(0, 0, 0, 0.1);
         padding: 1rem;
         clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
         transition: .3s;
     }
+
     .header .navbar.active {
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     }
+
     .header .navbar a {
         display: block;
         padding: 1.5rem;
@@ -906,5 +989,84 @@ section {
         font-size: 2rem;
         border-radius: .5rem;
     }
-    .hero .content h3 { font-size: 3.5rem; }
+
+    .hero .content h3 {
+        font-size: 3.5rem;
+    }
+}
+
+/* WhatsApp & Call Floating Buttons */
+.floating-buttons {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.floating-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 28px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.floating-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.whatsapp-btn {
+    background-color: #25D366;
+    /* لون الواتساب الأخضر */
+}
+
+.call-btn {
+    background-color: #007BFF;
+    /* لون المكالمة الأزرق */
+}
+
+/* لتحريك الأيقونات عند الـ hover */
+.floating-btn:hover .tooltip {
+    opacity: 1;
+    transform: translateX(-10px);
+}
+
+/* Tooltip نص توضيحي */
+.tooltip {
+    position: absolute;
+    right: 70px;
+    background: #333;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+    pointer-events: none;
+}
+
+/* Responsive للأجهزة الصغيرة */
+@media (max-width: 768px) {
+    .floating-buttons {
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .floating-btn {
+        width: 55px;
+        height: 55px;
+        font-size: 24px;
+    }
 }

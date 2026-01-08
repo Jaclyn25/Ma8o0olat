@@ -55,29 +55,32 @@
         </div>
     </section> -->
     <section class="hero" id="hero">
-        <!-- فيديو الخلفية -->
-        <video autoplay muted loop class="hero-video">
-            <source src="images/IMG_3215.MOV" type="video/mp4">
-            متصفحك لا يدعم الفيديو
-        </video>
+    <!-- صورة الغلاف -->
+    <div class="hero-image"></div>
 
-        <!-- Overlay موجود بالفعل -->
-        <div class="hero-overlay"></div>
+    <!-- فيديو الخلفية -->
+    <video autoplay muted loop class="hero-video">
+        <source src="images/IMG_3215.MOV" type="video/mp4">
+        متصفحك لا يدعم الفيديو
+    </video>
 
-        <!-- المحتوى -->
-        <div class="content reveal">
-            <h3>نبني رؤيتكم.. ونشيد المستقبل</h3>
-            <p>
-                في شركة اوتاد للمقاولات العامة، لا نقوم بمجرد البناء، بل نصنع معالم تدوم. نقدم خدمات مقاولات عامة
-                متكاملة من التخطيط الهندسي وحتى التشطيبات النهائية بأعلى معايير الجودة والسلامة. خبرة تمتد لسنوات في
-                السوق السعودي، وفريق هندسي متكامل لخدمتكم.
-            </p>
-            <div class="buttons">
-                <a href="#contact" class="btn">اطلب عرض سعر مجاني</a>
-                <a href="#projects" class="btn btn-secondary">شاهد أعمالنا</a>
-            </div>
+    <!-- Overlay موجود بالفعل -->
+    <div class="hero-overlay"></div>
+
+    <!-- المحتوى -->
+    <div class="content reveal">
+        <h3>نبني رؤيتكم.. ونشيد المستقبل</h3>
+        <p>
+            في شركة اوتاد للمقاولات العامة، لا نقوم بمجرد البناء، بل نصنع معالم تدوم. نقدم خدمات مقاولات عامة
+            متكاملة من التخطيط الهندسي وحتى التشطيبات النهائية بأعلى معايير الجودة والسلامة. خبرة تمتد لسنوات في
+            السوق السعودي، وفريق هندسي متكامل لخدمتكم.
+        </p>
+        <div class="buttons">
+            <a href="#contact" class="btn">اطلب عرض سعر مجاني</a>
+            <a href="#projects" class="btn btn-secondary">شاهد أعمالنا</a>
         </div>
-    </section>
+    </div>
+</section>
 
 
     <!-- قسم من نحن -->
@@ -387,10 +390,6 @@
                 <h3>اوتاد <span> للمقاولات </span></h3>
                 <p>شركة رائدة في مجال المقاولات العامة، نسعى دائماً لتحقيق رؤية عملائنا بأفضل جودة وأنسب سعر.</p>
                 <div class="share">
-                    <a href="#" class="fab fa-facebook-f"></a>
-                    <a href="#" class="fab fa-twitter"></a>
-                    <a href="#" class="fab fa-instagram"></a>
-                    <a href="#" class="fab fa-linkedin"></a>
                     <a href="https://wa.me/966501234567?text=السلام%20عليكم%20،%20أرغب%20في%20طلب%20استشارة"
                         target="_blank" class="fab fa-whatsapp"></a>
                 </div>
@@ -416,6 +415,23 @@
         <div class="credit"> حقوق النشر محفوظة &copy; 2023 | <span>شركة اوتاد للمقاولات</span> </div>
     </footer>
 
+    <!-- WhatsApp & Call Floating Buttons -->
+<div class="floating-buttons">
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/966501234567?text=السلام%20عليكم%20،%20أرغب%20في%20طلب%20استشارة" 
+       target="_blank" 
+       class="floating-btn whatsapp-btn">
+        <i class="fab fa-whatsapp"></i>
+        <span class="tooltip">تواصل عبر واتساب</span>
+    </a>
+    
+    <!-- Call Button -->
+    <a href="tel:+966550212900" 
+       class="floating-btn call-btn">
+        <i class="fas fa-phone"></i>
+        <span class="tooltip">اتصل بنا الآن</span>
+    </a>
+</div>
     <!-- ملف الجافاسكريبت -->
     <script src="script.js"></script>
 </body>
